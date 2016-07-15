@@ -1,2 +1,2 @@
 # env
-Environment stuff
+Environment stuff mainly for linux admin console.
