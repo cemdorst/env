@@ -49,25 +49,11 @@ PS1="[\u@\h \W]\$"
 export EDITOR=vim
 
 # MISC
-## Send gnome notification when command is done running
-## Graph
-remind-me () { time $* ; notify-send -u critical -t 0 "$*" "Command $* has finished!" ; }
-
-# Add an "alert" alias for long running commands.  Use like so:
-# Term
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 #kubernetes
 alias k=kubectl
 complete -F __start_kubectl k
 
 ## Shorcut to calc
 ? () { echo "$*" | bc -l ; }
-
-sl () {
-    /bin/ls -lF "$@" \
-    | sed -r ': top; s/. ([0-9]+)([0-9]{3}[,0-9]* \w{3} )/ \1,\2/ ; t top'
-}
 
 export PATH PS1 LANG LOCALE
