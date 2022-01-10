@@ -56,4 +56,11 @@ complete -F __start_kubectl k
 ## Shorcut to calc
 ? () { echo "$*" | bc -l ; }
 
+## Whois AS ip range
+ASiprange() {
+  ASNUMBER=$1
+  #whois -h whois.radb.net -- '-i origin' $ASNUMBER | grep -Eo "([0-9.]+){4}/[0-9]+"
+  echo '!g'$ASNUMBER|nc whois.radb.net 43 | grep -Eo "([0-9.]+){4}/[0-9]+"
+}
+
 export PATH PS1 LANG LOCALE
