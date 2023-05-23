@@ -56,6 +56,11 @@ complete -F __start_kubectl k
 ## Shorcut to calc
 ? () { echo "$*" | bc -l ; }
 
+## List files with pattern
+ftext () {
+  grep -iIHrn --color=always "$1" . | less -R -r
+}
+
 ## Whois AS ip range
 ASiprange() {
   ASNUMBER=$1
