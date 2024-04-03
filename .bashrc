@@ -53,6 +53,13 @@ export EDITOR=vim
 alias k=kubectl
 complete -F __start_kubectl k
 
+#true get all
+function kall() {
+  kubectl api-resources --verbs=list --namespaced -o name   | xargs -n 1 kubectl get --show-kind --ignore-not-found -n $1
+}
+
+export -f kall
+
 ## Shorcut to calc
 ? () { echo "$*" | bc -l ; }
 
